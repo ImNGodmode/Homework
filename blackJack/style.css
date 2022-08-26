@@ -26,6 +26,11 @@ display: flex;
 flex-direction: row;
 justify-content: space-around;
 }
+.dealerCards img {
+    border: solid black 1px;
+    height: 10vh;
+    width: 5vw;
+}
 .player{
     border: solid red 1px;
     height: 10vh;
@@ -39,4 +44,18 @@ justify-content: space-around;
     border: solid black 1px;
     height: 10vh;
     width: 5vw;
+}
+.controlBox{
+    display: flex;
+    justify-content: space-around;
+}
+.hit{
+    height: 10vh;
+    width: 10vw;
+    font-size: 25px;
+}
+.stay{
+    height: 10vh;
+    width: 10vw;
+    font-size: 25px;
 }
