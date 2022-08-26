@@ -1,0 +1,41 @@
+body{
+    background-color: black;
+}
+.table{
+    border: solid 10px gold;
+    border-radius: 50%;
+    background-color: blue;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;    
+}
+.controlBox{
+    border: solid white 2px;
+    height: 20vh;
+    width: 95vw;
+    margin-left: 2vw;
+}
+.dealer{
+border: solid white 1px;
+height: 10vh;
+width: 50vw;
+margin-left: 20vw;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+.player{
+    border: solid red 1px;
+    height: 10vh;
+    width: 50vw;
+    margin-left: 20vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.card{
+    border: solid black 1px;
+    height: 10vh;
+    width: 5vw;
+}
