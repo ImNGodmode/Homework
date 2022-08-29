@@ -61,18 +61,18 @@ font-size: 20px;
     justify-content: space-around;
 }
 .newGame{
-    height: 10vh;
-    width: 10vw;
+    height: 50%;
+    width: 20%;
     font-size: 25px;
 }
-.hit{
-    height: 10vh;
-    width: 10vw;
+#hit{
+    height: 50%;
+    width: 20%;
     font-size: 25px;
 }
-.stay{
-    height: 10vh;
-    width: 10vw;
+#stay{
+    height: 50%;
+    width: 20%;
     font-size: 25px;
 }
 #results{
