@@ -2,7 +2,7 @@ body{
     background-color: black;
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     }
 .space{
     background-image: url(https://thumbs.gfycat.com/RemoteImpishBlackbear-size_restricted.gif);
@@ -10,6 +10,7 @@ body{
     height: 50vh;
     width: 60vw;
     margin-top: 10vh;
+    margin-left: 20vw;
     display: flex;
 }
 #player{
@@ -22,4 +23,42 @@ body{
     height: 10vh;
     width: 7vw;
     
+}
+.controleBox{
+    border: solid rgb(12, 164, 146) .5px;
+    height: 15vh;
+    width: 70vw;
+    margin-left: 15vw;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: space-around;
+}
+.newGame{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.newGame:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+#aliens{
+    border: solid white 1px;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
