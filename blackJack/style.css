@@ -19,26 +19,33 @@ body{
 }
 .dealer{
 border: solid white 1px;
-height: 10vh;
+height: 12vh;
 width: 50vw;
 margin-left: 20vw;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
 }
-.dealerCards img {
+#dealerCards img {
     border: solid black 1px;
     height: 10vh;
-    width: 5vw;
+    width: 8vw;
+    margin: 5px;
 }
 .player{
     border: solid red 1px;
-    height: 10vh;
+    height: 12vh;
     width: 50vw;
     margin-left: 20vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+#playerCards img {
+    border: solid black 1px;
+    height: 10vh;
+    width: 8vw;
+    margin: 5px;
 }
 .card{
     border: solid black 1px;
@@ -48,6 +55,11 @@ justify-content: space-around;
 .controlBox{
     display: flex;
     justify-content: space-around;
+}
+.newGame{
+    height: 10vh;
+    width: 10vw;
+    font-size: 25px;
 }
 .hit{
     height: 10vh;

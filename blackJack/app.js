@@ -17,40 +17,93 @@ let hidden;
 let deck;
 let canHit = true;
 
-
+window.onload = function() {
+    buildDeck();
+    shuffle();
+    newGame();
+}
 
 const buildDeck = () =>{
     let values = ['a', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'j', 'q', 'k']
     let types = ['h', 'c', 'd', 's']
     deck = []
     for (let i = 0; i < types.length; i++)
-        for (let g = 0; g< values.length; g++)
+        for (let g = 0; g < values.length; g++)
         deck.push(values[g] + types[i])
 }
-buildDeck()
-// builds a deck of cards
+
+ // builds a deck of cards
 const shuffle = () => {
     for (let i = 0; i < deck.length; i++){
-        let j = Math.floor(Math.random() *deck.length)
+        let j = Math.floor(Math.random() * deck.length)
         let temp = deck[i]
         deck[i] = deck[j]
         deck[j] = temp
     }
+    console.log(deck)
 }
- shuffle()
-//  shuffles the cards so they are not in order
-const getValue = () => {
-    let data = car.split('')
-    let value = data[0]
 
-    if (isNaN(value))
-        if (value === 'a'){
-            return 11
-        }else return 10
-}
+// //  shuffles the cards so they are not in order
+
 const newGame = () => {
     hidden = deck.pop()
     dealerSum += getValue(hidden)
+    dealerAceCount += checkAce(hidden)
+    // console.log(hidden)
+    // console.log(dealerSum)
+    while (dealerSum < 17) {
+        let cardImg = document.createElement("img")
+        let card = deck.pop()
+        cardImg.src = "./cards/" + card + ".png"
+        dealerSum += getValue(card)
+        dealerAceCount += checkAce(card)
+        document.getElementById("dealerCards").append(cardImg)
+    }
+    console.log(dealerSum)
+
+    for ( let i = 0; i < 2; i++){
+
+        let cardImg = document.createElement("img")
+        let card = deck.pop()
+        cardImg.src = "./cards/" + card + ".png"
+        yourSum += getValue(card)
+        yourAceCount += checkAce(card)
+        document.getElementById("playerCards").append(cardImg) 
+    }
+    console.log(yourSum)
+
+    document.getElementById("hit").addEventListener("click", hit)
+
+ }
+
+ const hit = () => {
+    if (!canHit){
+        return
+    }
+    let cardImg = document.createElement("img")
+        let card = deck.pop()
+        cardImg.src = "./cards/" + card + ".png"
+        yourSum += getValue(card)
+        yourAceCount += checkAce(card)
+        document.getElementById("playerCards").append(cardImg) 
+ }
+
+const getValue =(card) => {
+    let data = card.split("")
+    let value = data[0]
+
+    if (isNaN(value)){
+        if(value === "a"){
+            return 11
+        } 
+        return 10
+    }
+    return parseInt(value)
 }
 
-console.log(deck)
+const checkAce = (card) => {
+    if (card[0] === 'a'){
+        return 1
+    }
+    return 0
+}

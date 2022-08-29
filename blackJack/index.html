@@ -11,19 +11,20 @@
     <body>
         <div class="table">
             <div class="dealer">Dealer <span class = dealerSum></span>
-                <div class="dealerCards">
+                <div id ="dealerCards">
                     <img src="./cards/back.jpg" alt="" class="hidden">
                     
                 </div>
             </div>
             <div class="player">player<span class = playerSum></span>
-            <div class="playerCards">
+            <div id ="playerCards">
             </div>
             </div>
         </div>
         <div class="controlBox">
-            <button class="hit">Hit</button>
-            <button class="stay">Stay</button>
+            <button class="newGame" onclick="newGameF()">New Game</button>
+            <button id="hit">Hit</button>
+            <button id="stay">Stay</button>
             <p class="results"></p>
         </div>
 
