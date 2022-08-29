@@ -24,7 +24,7 @@ window.onload = function() {
 }
 
 const buildDeck = () =>{
-    let values = ['a', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'j', 'q', 'k']
+    let values = ['a', '2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k']
     let types = ['h', 'c', 'd', 's']
     deck = []
     for (let i = 0; i < types.length; i++)
@@ -73,19 +73,52 @@ const newGame = () => {
     console.log(yourSum)
 
     document.getElementById("hit").addEventListener("click", hit)
+    document.getElementById("stay").addEventListener("click", stay)
+
 
  }
+
+ const stay = () => {
+    dealerSum = reduceAce(dealerSum, dealerAceCount)
+    yourSum = reduceAce(yourSum, yourAceCount)
+    canHit = false
+    document.getElementById("hidden").src = "./cards/" + hidden + ".png"
+    let message = ""
+    if (yourSum > 21){
+        message = "You Lose!"
+    }
+    else if (dealerSum > 21){
+        message = "You Win!"
+    }
+    else if (yourSum === dealerSum){
+    message = "Tie"
+    }
+    else if (yourSum > dealerSum){
+        message = "You Win!"
+    }
+    else if (yourSum < dealerSum){
+        message = "You Lose!"
+    }
+
+    document.getElementById("results").innerText = message
+    document.getElementById("dealerSum").innerText = dealerSum
+    document.getElementById("playerSum").innerText = yourSum
+}
 
  const hit = () => {
     if (!canHit){
         return
     }
-    let cardImg = document.createElement("img")
+        let cardImg = document.createElement("img")
         let card = deck.pop()
         cardImg.src = "./cards/" + card + ".png"
         yourSum += getValue(card)
         yourAceCount += checkAce(card)
         document.getElementById("playerCards").append(cardImg) 
+
+        if (reduceAce(yourSum,yourAceCount) > 21){
+            canHit = false
+        }
  }
 
 const getValue =(card) => {
@@ -106,4 +139,12 @@ const checkAce = (card) => {
         return 1
     }
     return 0
+}
+
+const reduceAce = (playerSum, playerAceCount) => {
+    while (playerSum > 21 && playerAceCount > 0){
+        playerSum -= 10
+        playerAceCount -= 1
+    }
+    return playerSum
 }

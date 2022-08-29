@@ -25,6 +25,8 @@ margin-left: 20vw;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
+color: white;
+font-size: 20px;
 }
 #dealerCards img {
     border: solid black 1px;
@@ -40,6 +42,8 @@ justify-content: space-around;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: white;
+    font-size: 20px;
 }
 #playerCards img {
     border: solid black 1px;
@@ -70,4 +74,16 @@ justify-content: space-around;
     height: 10vh;
     width: 10vw;
     font-size: 25px;
+}
+#results{
+    color: white;
+    font-size: 20px;
+}
+#dealerSum{
+    color: white;
+    font-size: 20px;
+}
+#playerSum{
+    color: white;
+    font-size: 20px;
 }
