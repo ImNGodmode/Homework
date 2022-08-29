@@ -23,6 +23,34 @@ window.onload = function() {
     newGame();
 }
 
+const newGameF = () =>{
+    dealerAceCount = 0
+    dealerSum = 0
+    yourAceCount = 0
+    yourSum = 0
+    canHit = true
+    const houseCards = document.getElementById("dealerCards")
+    const homeCards = document.getElementById("playerCards")
+    while (houseCards.hasChildNodes()){
+        houseCards.removeChild(houseCards.firstChild)
+    }
+    while (homeCards.hasChildNodes()){
+        homeCards.removeChild(homeCards.firstChild)
+    }
+   
+    let cardImg = document.createElement("img")
+    cardImg.id = "hidden"
+    cardImg.src = "./cards/back.jpg"
+    document.getElementById("dealerCards").append(cardImg)
+    document.getElementById("results").innerText = ""
+    document.getElementById("dealerSum").innerText = ""
+    document.getElementById("playerSum").innerText = ""
+    
+    buildDeck();
+    shuffle();
+    newGame();
+}
+
 const buildDeck = () =>{
     let values = ['a', '2', '3', '4', '5', '6', '7', '8', '9', 't', 'j', 'q', 'k']
     let types = ['h', 'c', 'd', 's']
@@ -51,14 +79,12 @@ const newGame = () => {
     dealerAceCount += checkAce(hidden)
     // console.log(hidden)
     // console.log(dealerSum)
-    while (dealerSum < 17) {
-        let cardImg = document.createElement("img")
-        let card = deck.pop()
-        cardImg.src = "./cards/" + card + ".png"
-        dealerSum += getValue(card)
-        dealerAceCount += checkAce(card)
-        document.getElementById("dealerCards").append(cardImg)
-    }
+    let cardImg = document.createElement("img")
+    let card = deck.pop()
+       cardImg.src = "./cards/" + card + ".png"
+    dealerSum += getValue(card)
+    dealerAceCount += checkAce(card)
+    document.getElementById("dealerCards").append(cardImg)
     console.log(dealerSum)
 
     for ( let i = 0; i < 2; i++){
@@ -83,6 +109,16 @@ const newGame = () => {
     yourSum = reduceAce(yourSum, yourAceCount)
     canHit = false
     document.getElementById("hidden").src = "./cards/" + hidden + ".png"
+    
+    while (dealerSum < 17) {
+        let cardImg = document.createElement("img")
+        let card = deck.pop()
+        cardImg.src = "./cards/" + card + ".png"
+        dealerSum += getValue(card)
+        dealerAceCount += checkAce(card)
+        document.getElementById("dealerCards").append(cardImg)
+    }
+    
     let message = ""
     if (yourSum > 21){
         message = "You Lose!"
