@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    }
+.space{
+    background-image: url(https://thumbs.gfycat.com/RemoteImpishBlackbear-size_restricted.gif);
+    background-size: cover;
+    height: 50vh;
+    width: 60vw;
+    margin-top: 10vh;
+    display: flex;
+}
+#player{
+    height: 10vh;
+    width: 7vw;
+    align-self: flex-end;
+    margin-left: 27vw
+}
+#ship{
+    height: 10vh;
+    width: 7vw;
+    
+}
