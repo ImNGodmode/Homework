@@ -1,18 +1,24 @@
 let lvl = 1
 let enemys = []
 let message = ''
-const info = document.getElementById("infoBox")
+
 // create the player
 const player = {
     hull: 20,
     firePower: 5,
     accuracy: 70,
 }
+// display player info to hud
+const info = document.getElementById("infoBox")
+let health = document.getElementById("health")
+health.innerHTML = `health ${player.hull}`
+let cannons = document.getElementById("cannons")
+cannons.innerHTML = `cannons ${player.firePower}`
 // create a constructor for enemys
 class alien {
     constructor() {
-       this.hull= Math.floor(Math.random()*6)
-       this.firePower= Math.floor(Math.random()*4)
+       this.hull= Math.floor(Math.random()*4)+3
+       this.firePower= Math.floor(Math.random()*2)+2
        this.accuracy= Math.floor(Math.random()*100) 
     }
 
@@ -35,21 +41,27 @@ const fight = () => {
     
         if (Math.random()*100 <= player.accuracy){
             enemys[0].hull -= player.firePower
+            info.innerText = `You hit an aliean for ${player.firePower}`
+        }else {
+            info.innerText = "You missed COME ON MAAANNN!!!"
         }
             if (enemys[0].hull > 0){
                 if (Math.random()*100 <= enemys[0].accuracy){
                     player.hull -= enemys[0].firePower
+                    health.innerHTML = `health ${player.hull}`
                     if (player.hull <= 0){
                         info.innerText = `you lost at level ${lvl}`
                     }
                 }  
-            }else 
+            }else if (enemys[0].hull <=0){
+                
                 enemys.shift
                 const enemyImg = document.getElementById("aliens")
                 if (enemyImg.hasChildNodes()){
                     enemyImg.removeChild(enemyImg.children[0])
                 }
-    
+            }
+            
         // console.log(enemys)
     // console.log(player)
     // console.log("i am level " + lvl)
@@ -63,7 +75,7 @@ const keepFighting = () => {
         const enemyship = document.createElement("img")
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
-        info.innerText = "You killed and alien"
+        info.innerText = `There are ${lvl} more aliens!`
     } 
 }
 const retreat = () => {

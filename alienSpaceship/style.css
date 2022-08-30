@@ -4,6 +4,25 @@ body{
     display: flex;
     flex-direction: column;
     }
+.hud{
+    border: solid white 1px;
+    height: 10vh;
+    width: 90vw;
+    margin-left: 5vw;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+.health{
+    border: solid green 1px;
+    height: 10vh;
+    width: 200px;
+}
+.cannons{
+    border: solid red 1px;
+    height: 10vh;
+    width: 200px;
+}
 .space{
     background-image: url(https://thumbs.gfycat.com/RemoteImpishBlackbear-size_restricted.gif);
     background-size: cover;
