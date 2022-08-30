@@ -45,22 +45,22 @@ const fight = () => {
         }else {
             info.innerText = "You missed COME ON MAAANNN!!!"
         }
-            if (enemys[0].hull > 0){
-                if (Math.random()*100 <= enemys[0].accuracy){
-                    player.hull -= enemys[0].firePower
-                    health.innerHTML = `health ${player.hull}`
-                    if (player.hull <= 0){
-                        info.innerText = `you lost at level ${lvl}`
-                    }
-                }  
-            }else if (enemys[0].hull <=0){
-                
-                enemys.shift
+        if (enemys[0].hull > 0){
+            if (Math.random()*100 <= enemys[0].accuracy){
+                player.hull -= enemys[0].firePower
+                health.innerHTML = `health ${player.hull}`
+                info.innerText += `you were hit for ${enemys[0].firePower} damage`
+                if (player.hull <= 0){
+                    info.innerText += `you lost at level ${lvl}`
+                }
+            }  
+        }else if (enemys[0].hull <=0){     
+                enemys.shift()
                 const enemyImg = document.getElementById("aliens")
                 if (enemyImg.hasChildNodes()){
                     enemyImg.removeChild(enemyImg.children[0])
                 }
-            }
+        }
             
         // console.log(enemys)
     // console.log(player)
