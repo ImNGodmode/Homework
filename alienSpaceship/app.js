@@ -1,9 +1,14 @@
 let lvl = 1
 let enemys = []
 let message = ''
-
+let gold = 0 
+let rechargeNum = 0
+let hullUpgrades = 0
+let gunUpgrades = 0
+let canFight = true
 // create the player
 const player = {
+    maxHull: 20,
     hull: 20,
     firePower: 5,
     accuracy: 70,
@@ -14,6 +19,10 @@ let health = document.getElementById("health")
 health.innerHTML = `health ${player.hull}`
 let cannons = document.getElementById("cannons")
 cannons.innerHTML = `cannons ${player.firePower}`
+let coins = document.getElementById("coins")
+coins.innerHTML = `Gold ${gold}`
+let level = document.getElementById("level")
+level.innerHTML = `level ${lvl}`
 // create a constructor for enemys
 class alien {
     constructor() {
@@ -33,6 +42,7 @@ const play = () =>{
         const enemyship = document.createElement("img")
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
+        player.hull = 20
     } 
 }
 // create a function that does all of the actions of the fight
@@ -54,7 +64,9 @@ const fight = () => {
                     info.innerText += `you lost at level ${lvl}`
                 }
             }  
-        }else if (enemys[0].hull <=0){     
+        }else if (enemys[0].hull <=0){ 
+                gold += (5 * lvl) 
+                coins.innerHTML = `Gold ${gold}`   
                 enemys.shift()
                 const enemyImg = document.getElementById("aliens")
                 if (enemyImg.hasChildNodes()){
@@ -69,6 +81,7 @@ const fight = () => {
 
 const keepFighting = () => {
     lvl = lvl + 1
+    level.innerHTML = `level ${lvl}`
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
@@ -80,6 +93,35 @@ const keepFighting = () => {
 }
 const retreat = () => {
     info.innerText = `You escaped at level ${lvl}`
+}
+const rechargeShields = () => {
+   if (gold >= (100 + (100 * rechargeNum))){
+    player.hull = player.maxHull
+    gold -= (100 + (100 * rechargeNum))
+    rechargeNum++
+    health.innerHTML = `health ${player.hull}`
+    coins.innerHTML = `Gold ${gold}`
+   }
+}
+const upgradeHull = () => {
+    if (gold >= (250 + (250 * hullUpgrades))){
+    player.maxHull += 5
+    player.hull += 5
+    gold -= (250 + (250 * hullUpgrades)) 
+    hullUpgrades++
+    health.innerHTML = `health ${player.hull}`
+    coins.innerHTML = `Gold ${gold}`
+    }
+}
+const upgradeCannons = () => {
+    if (gold >= (250 + (250 * gunUpgrades))){
+        player.firePower += 1
+        gold -= (250 + (250 * gunUpgrades)) 
+        gunUpgrades++
+        cannons.innerHTML = `cannons ${player.firePower}`
+        coins.innerHTML = `Gold ${gold}`
+        }
+
 }
 // console.log(enemys[0].hull)
 //console.log(player)

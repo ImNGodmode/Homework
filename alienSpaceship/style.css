@@ -77,7 +77,7 @@ body{
 #aliens{
     border: solid white 1px;
     height: 50%;
-    width: 100%;
+    width: 60vw;
     display: flex;
     justify-content: space-around;
 }
@@ -168,6 +168,72 @@ body{
     align-items: center;  
 }
 .retreat:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.rechargeShields{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.rechargeShields:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.upgradeHull{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.upgradeHull:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.upgradeCannons{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.upgradeCannons:hover{
     border: solid white 1px;
     background-color: rgb(12, 164, 146);
     color: black;
