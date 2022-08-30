@@ -62,3 +62,57 @@ body{
     display: flex;
     justify-content: space-around;
 }
+#infoBox{
+    border: solid white;
+    height: 10vh;
+    width: 50vw;
+    margin-left: 25vw;
+    color: rgb(244, 29, 147);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fight{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.fight:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.keepFighting{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.keepFighting:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}

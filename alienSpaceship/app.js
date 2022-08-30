@@ -1,6 +1,6 @@
 let lvl = 1
 let enemys = []
-
+let message = ''
 
 // create the player
 const player = {
@@ -20,15 +20,52 @@ class alien {
 
 const play = () =>{
     // create a loop that creats a number of enemys depending on the level
+    lvl = 1
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
-        let enemyship = document.createElement("img")
+        const enemyship = document.createElement("img")
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
     } 
 }
+// create a function that does all of the actions of the fight
+const fight = () => {
+    
+    
+        if (Math.random()*100 <= player.accuracy){
+            enemys[0].hull -= player.firePower
+        }
+            if (enemys[0].hull > 0){
+                if (Math.random()*100 <= enemys[0].accuracy){
+                    player.hull -= enemys[0].firePower
+                }  
+            }else
+    enemys.shift
+    const enemyImg = document.getElementById("aliens")
+    if (enemyImg.hasChildNodes()){
+        enemyImg.removeChild(enemyImg.children[0])
+    }
+    console.log(enemys)
+    console.log(player)
+    console.log("i am level " + lvl)
+}
+
+const keepFighting = () => {
+    lvl = lvl + 1
+    for (i = 1; i <= lvl; i++){
+        const enemy = new alien
+        enemys.push(enemy)
+        const enemyship = document.createElement("img")
+        enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+        document.getElementById("aliens").append(enemyship)
+    } 
+}
+// console.log(enemys[0].hull)
+//console.log(player)
+
+//fight()
 //play()
 // const enemy = new alien
 // console.log(enemys)
-// console.log(player)
+ console.log(player)
