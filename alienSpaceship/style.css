@@ -116,3 +116,47 @@ body{
     text-align: center;
     align-items: center;  
 }
+.fight{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.fight:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.retreat{
+    border: solid rgb(12, 164, 146) 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}
+.retreat:hover{
+    border: solid white 1px;
+    background-color: rgb(12, 164, 146);
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50%;
+    border-radius: 22px;
+    display: flex;
+    text-align: center;
+    align-items: center;  
+}

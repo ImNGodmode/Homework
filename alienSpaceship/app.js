@@ -1,7 +1,7 @@
 let lvl = 1
 let enemys = []
 let message = ''
-
+const info = document.getElementById("infoBox")
 // create the player
 const player = {
     hull: 20,
@@ -39,16 +39,20 @@ const fight = () => {
             if (enemys[0].hull > 0){
                 if (Math.random()*100 <= enemys[0].accuracy){
                     player.hull -= enemys[0].firePower
+                    if (player.hull <= 0){
+                        info.innerText = `you lost at level ${lvl}`
+                    }
                 }  
-            }else
-    enemys.shift
-    const enemyImg = document.getElementById("aliens")
-    if (enemyImg.hasChildNodes()){
-        enemyImg.removeChild(enemyImg.children[0])
-    }
-    console.log(enemys)
-    console.log(player)
-    console.log("i am level " + lvl)
+            }else 
+                enemys.shift
+                const enemyImg = document.getElementById("aliens")
+                if (enemyImg.hasChildNodes()){
+                    enemyImg.removeChild(enemyImg.children[0])
+                }
+    
+        // console.log(enemys)
+    // console.log(player)
+    // console.log("i am level " + lvl)
 }
 
 const keepFighting = () => {
@@ -59,7 +63,11 @@ const keepFighting = () => {
         const enemyship = document.createElement("img")
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
+        info.innerText = "You killed and alien"
     } 
+}
+const retreat = () => {
+    info.innerText = `You escaped at level ${lvl}`
 }
 // console.log(enemys[0].hull)
 //console.log(player)
