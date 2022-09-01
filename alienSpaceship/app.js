@@ -6,6 +6,7 @@ let rechargeNum = 0
 let hullUpgrades = 0
 let gunUpgrades = 0
 let canFight = true
+let bosslvl = 0
 // create the player
 const player = {
     maxHull: 20,
@@ -33,7 +34,13 @@ class alien {
     }
 
 }
-
+class Boss {
+    constructor() {
+        this.hull= Math.floor(Math.random()*20)+5
+        this.firePower= Math.floor(Math.random()*5)+2
+        this.accuracy= Math.floor(Math.random()*100) 
+     }
+}
 const play = () =>{
     // create a loop that creats a number of enemys depending on the level
        
@@ -93,14 +100,26 @@ const keepFighting = () => {
     if (canFight === true){
         lvl = lvl + 1
         level.innerHTML = `level ${lvl}`
-        for (i = 1; i <= lvl; i++){
-            const enemy = new alien
-            enemys.push(enemy)
-            const enemyship = document.createElement("img")
-            enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
-            document.getElementById("aliens").append(enemyship)
-            info.innerText = `There are ${lvl} more aliens!`
-        } 
+        if (lvl % 5 === 0){
+            bosslvl += 1
+            for (i = 1; i <= bosslvl; i++){
+                const bossEnemy = new Boss
+                enemys.push(bossEnemy)
+                const enemyship = document.createElement("img")
+                enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAdXJnu9q5e09jvYnOBwPWnOp9sJKe9_IGRw&usqp=CAU"
+                document.getElementById("aliens").append(enemyship)
+                info.innerText = `There are ${bosslvl} more boss aliens!`
+            }
+        }else {
+            for (i = 1; i <= lvl; i++){
+                const enemy = new alien
+                enemys.push(enemy)
+                const enemyship = document.createElement("img")
+                enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                document.getElementById("aliens").append(enemyship)
+                info.innerText = `There are ${lvl} more aliens!`
+            } 
+        }
     }
 }
 const retreat = () => {
