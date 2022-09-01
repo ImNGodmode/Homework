@@ -32,7 +32,76 @@ class alien {
        this.firePower= Math.floor(Math.random()*2)+2
        this.accuracy= Math.floor(Math.random()*100) 
     }
-
+}
+class alien10 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+5
+       this.firePower= Math.floor(Math.random()*2)+3
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien20 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+8
+       this.firePower= Math.floor(Math.random()*2)+4
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien30 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+11
+       this.firePower= Math.floor(Math.random()*2)+5
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien40 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+14
+       this.firePower= Math.floor(Math.random()*2)+6
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien50 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+20
+       this.firePower= Math.floor(Math.random()*2)+8
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien60 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+23
+       this.firePower= Math.floor(Math.random()*2)+9
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien70 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+26
+       this.firePower= Math.floor(Math.random()*2)+10
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien80 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+29
+       this.firePower= Math.floor(Math.random()*2)+11
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien90 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+32
+       this.firePower= Math.floor(Math.random()*2)+12
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
+}
+class alien100 {
+    constructor() {
+       this.hull= Math.floor(Math.random()*4)+35
+       this.firePower= Math.floor(Math.random()*2)+13
+       this.accuracy= Math.floor(Math.random()*100) 
+    }
 }
 class Boss {
     constructor() {
@@ -45,6 +114,7 @@ const play = () =>{
     // create a loop that creats a number of enemys depending on the level
        
         lvl = 1
+        bosslvl = 0
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
@@ -111,14 +181,116 @@ const keepFighting = () => {
                 info.innerText = `There are ${bosslvl} more boss aliens!`
             }
         }else {
-            for (i = 1; i <= lvl; i++){
-                const enemy = new alien
-                enemys.push(enemy)
-                const enemyship = document.createElement("img")
-                enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
-                document.getElementById("aliens").append(enemyship)
-                info.innerText = `There are ${lvl} more aliens!`
-            } 
+            if (lvl < 10){
+                for (i = 1; i <= lvl; i++){
+                    const enemy = new alien
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${lvl} more aliens!`
+                } 
+            }
+            if (lvl > 10 && lvl < 20){
+                for (i = 1; i <= (lvl - 10); i++){
+                    const enemy = new alien10
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 10)} more aliens!`
+                } 
+            }
+            if (lvl > 20 && lvl < 30){
+                for (i = 1; i <= (lvl - 20); i++){
+                    const enemy = new alien20
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 20)} more aliens!`
+                } 
+            }
+            if (lvl > 30 && lvl < 40){
+                for (i = 1; i <= (lvl - 30); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 30)} more aliens!`
+                } 
+            }
+            if (lvl > 40 && lvl < 50){
+                for (i = 1; i <= (lvl - 40); i++){
+                    const enemy = new alien40
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 40)} more aliens!`
+                } 
+            }
+            if (lvl > 50 && lvl < 60){
+                for (i = 1; i <= (lvl - 50); i++){
+                    const enemy = new alien50
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 50)} more aliens!`
+                } 
+            }
+            if (lvl > 60 && lvl < 70){
+                for (i = 1; i <= (lvl - 60); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 60)} more aliens!`
+                } 
+            }
+            if (lvl > 70 && lvl < 80){
+                for (i = 1; i <= (lvl - 70); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 70)} more aliens!`
+                } 
+            }
+            if (lvl > 80 && lvl < 90){
+                for (i = 1; i <= (lvl - 80); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 80)} more aliens!`
+                } 
+            }
+            if (lvl > 90 && lvl < 100){
+                for (i = 1; i <= (lvl - 90); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 90)} more aliens!`
+                } 
+            }
+            if (lvl > 100) {
+                for (i = 1; i <= (lvl - 100); i++){
+                    const enemy = new alien30
+                    enemys.push(enemy)
+                    const enemyship = document.createElement("img")
+                    enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    document.getElementById("aliens").append(enemyship)
+                    info.innerText = `There are ${(lvl - 100)} more aliens!`
+                } 
+            }
         }
     }
 }
