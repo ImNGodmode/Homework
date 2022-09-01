@@ -23,6 +23,7 @@ let coins = document.getElementById("coins")
 coins.innerHTML = `Gold ${gold}`
 let level = document.getElementById("level")
 level.innerHTML = `level ${lvl}`
+const enemyImg = document.getElementById("aliens")
 // create a constructor for enemys
 class alien {
     constructor() {
@@ -35,7 +36,8 @@ class alien {
 
 const play = () =>{
     // create a loop that creats a number of enemys depending on the level
-    lvl = 1
+       
+        lvl = 1
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
@@ -61,17 +63,21 @@ const fight = () => {
             if (Math.random()*100 <= enemys[0].accuracy){
                 player.hull -= enemys[0].firePower
                 health.innerHTML = `health ${player.hull}`
-                info.innerText += `you were hit for ${enemys[0].firePower} damage`
+                info.innerText += ` You were hit for ${enemys[0].firePower} damage`
                 if (player.hull <= 0){
-                    info.innerText += `you lost at level ${lvl}`
+                    info.innerText += ` You lost at level ${lvl}`
                     canFight = false
+                    enemys = []
+                    while (enemyImg.hasChildNodes()){
+                        enemyImg.removeChild(enemyImg.firstChild)
+                    }
                 }
             }  
         }else if (enemys[0].hull <=0){ 
                 gold += (5 * lvl) 
                 coins.innerHTML = `Gold ${gold}`   
                 enemys.shift()
-                const enemyImg = document.getElementById("aliens")
+                
                 if (enemyImg.hasChildNodes()){
                     enemyImg.removeChild(enemyImg.children[0])
                 }
@@ -101,6 +107,10 @@ const retreat = () => {
     if (canFight === true){
     info.innerText = `You escaped at level ${lvl}`
     canFight = false
+    enemys = []
+    while (enemyImg.hasChildNodes()){
+        enemyImg.removeChild(enemyImg.firstChild)
+    }
     }
 }
 const rechargeShields = () => {
