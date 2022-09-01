@@ -179,7 +179,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.rechargeShields{
+#rechargeShields{
     border: solid rgb(12, 164, 146) 1px;
     padding-left: 10px;
     padding-right: 10px;
@@ -189,7 +189,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.rechargeShields:hover{
+#rechargeShields:hover{
     border: solid white 1px;
     background-color: rgb(12, 164, 146);
     color: black;
@@ -201,7 +201,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.upgradeHull{
+#upgradeHull{
     border: solid rgb(12, 164, 146) 1px;
     padding-left: 10px;
     padding-right: 10px;
@@ -211,7 +211,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.upgradeHull:hover{
+#upgradeHull:hover{
     border: solid white 1px;
     background-color: rgb(12, 164, 146);
     color: black;
@@ -223,7 +223,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.upgradeCannons{
+#upgradeCannons{
     border: solid rgb(12, 164, 146) 1px;
     padding-left: 10px;
     padding-right: 10px;
@@ -233,7 +233,7 @@ body{
     text-align: center;
     align-items: center;  
 }
-.upgradeCannons:hover{
+#upgradeCannons:hover{
     border: solid white 1px;
     background-color: rgb(12, 164, 146);
     color: black;

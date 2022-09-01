@@ -25,6 +25,12 @@ coins.innerHTML = `Gold ${gold}`
 let level = document.getElementById("level")
 level.innerHTML = `level ${lvl}`
 const enemyImg = document.getElementById("aliens")
+let shieldPrice = document.getElementById("shieldsPrice")
+shieldPrice.innerHTML = `100 Gold`
+let hullPrice = document.getElementById("hullPrice")
+hullPrice.innerHTML = "250 Gold"
+let cannonPrice = document.getElementById("cannonPrice")
+cannonPrice.innerHTML = "250 Gold"
 // create a constructor for enemys
 class alien {
     constructor() {
@@ -112,16 +118,22 @@ class Boss {
 }
 const play = () =>{
     // create a loop that creats a number of enemys depending on the level
-       
+       rechargeNum = 0
+       hullUpgrades = 0
+       gunUpgrades = 0
         lvl = 1
         bosslvl = 0
+        player.hull = 20
+        cannonPrice.innerHTML = `${(250 + (250 * gunUpgrades))} Gold`
+        shieldPrice.innerHTML = `${(100 + (100 * rechargeNum))} Gold`
+        hullPrice.innerHTML = `${(250 + (250 * hullUpgrades))} Gold`
+
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
         const enemyship = document.createElement("img")
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
-        player.hull = 20
         gold = 0
         canFight = true
     } 
@@ -312,6 +324,7 @@ const rechargeShields = () => {
             rechargeNum++
             health.innerHTML = `health ${player.hull}`
             coins.innerHTML = `Gold ${gold}`
+            shieldPrice.innerHTML = `${(100 + (100 * rechargeNum))} Gold`
         }
     }
 }
@@ -324,6 +337,7 @@ const upgradeHull = () => {
         hullUpgrades++
         health.innerHTML = `health ${player.hull}`
         coins.innerHTML = `Gold ${gold}`
+        hullPrice.innerHTML = `${(250 + (250 * hullUpgrades))} Gold`
         }
     }
 }
@@ -335,6 +349,7 @@ const upgradeCannons = () => {
             gunUpgrades++
             cannons.innerHTML = `cannons ${player.firePower}`
             coins.innerHTML = `Gold ${gold}`
+            cannonPrice.innerHTML = `${(250 + (250 * gunUpgrades))} Gold`
         }
     }
 }
