@@ -34,6 +34,7 @@ let cannonPrice = document.getElementById("cannonPrice")
 cannonPrice.innerHTML = "250 Gold"
 let topDog = document.getElementById("endScreen")
 topDog.innerHTML = highScore
+let sound = document.getElementById("sound")
 // create a constructor for enemys
 class alien {
     constructor() {
@@ -193,6 +194,7 @@ const keepFighting = () => {
         level.innerHTML = `level ${lvl}`
         if (lvl % 5 === 0){
             bosslvl += 1
+            sound.play()
             for (i = 1; i <= bosslvl; i++){
                 const bossEnemy = new Boss
                 enemys.push(bossEnemy)
