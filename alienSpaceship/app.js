@@ -7,6 +7,7 @@ let hullUpgrades = 0
 let gunUpgrades = 0
 let canFight = true
 let bosslvl = 0
+let highScore = ["",0]
 // create the player
 const player = {
     maxHull: 20,
@@ -31,6 +32,8 @@ let hullPrice = document.getElementById("hullPrice")
 hullPrice.innerHTML = "250 Gold"
 let cannonPrice = document.getElementById("cannonPrice")
 cannonPrice.innerHTML = "250 Gold"
+let topDog = document.getElementById("endScreen")
+topDog.innerHTML = highScore
 // create a constructor for enemys
 class alien {
     constructor() {
@@ -124,17 +127,23 @@ const play = () =>{
         lvl = 1
         bosslvl = 0
         player.hull = 20
+        gold = 0
         cannonPrice.innerHTML = `${(250 + (250 * gunUpgrades))} Gold`
         shieldPrice.innerHTML = `${(100 + (100 * rechargeNum))} Gold`
         hullPrice.innerHTML = `${(250 + (250 * hullUpgrades))} Gold`
+        health.innerHTML = `health ${player.hull}`
+        coins.innerHTML = `Gold ${gold}`
+        cannons.innerHTML = `cannons ${player.firePower}`
+        level.innerHTML = `level ${lvl}`
 
     for (i = 1; i <= lvl; i++){
         const enemy = new alien
         enemys.push(enemy)
         const enemyship = document.createElement("img")
+        enemyship.id = "nme"
         enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
         document.getElementById("aliens").append(enemyship)
-        gold = 0
+       
         canFight = true
     } 
 }
@@ -188,6 +197,7 @@ const keepFighting = () => {
                 const bossEnemy = new Boss
                 enemys.push(bossEnemy)
                 const enemyship = document.createElement("img")
+                enemyship.id = "nme"
                 enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAdXJnu9q5e09jvYnOBwPWnOp9sJKe9_IGRw&usqp=CAU"
                 document.getElementById("aliens").append(enemyship)
                 info.innerText = `There are ${bosslvl} more boss aliens!`
@@ -198,6 +208,7 @@ const keepFighting = () => {
                     const enemy = new alien
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
+                    enemyship.id = "nme"
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${lvl} more aliens!`
@@ -209,6 +220,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 10)} more aliens!`
                 } 
@@ -219,6 +231,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 20)} more aliens!`
                 } 
@@ -229,6 +242,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 30)} more aliens!`
                 } 
@@ -239,6 +253,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 40)} more aliens!`
                 } 
@@ -249,6 +264,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 50)} more aliens!`
                 } 
@@ -259,6 +275,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 60)} more aliens!`
                 } 
@@ -269,6 +286,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 70)} more aliens!`
                 } 
@@ -279,6 +297,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 80)} more aliens!`
                 } 
@@ -289,6 +308,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 90)} more aliens!`
                 } 
@@ -299,6 +319,7 @@ const keepFighting = () => {
                     enemys.push(enemy)
                     const enemyship = document.createElement("img")
                     enemyship.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTSzgGJlXRv6NZACaiVu5TnPCTHZ13s203_w&usqp=CAU"
+                    enemyship.id = "nme"
                     document.getElementById("aliens").append(enemyship)
                     info.innerText = `There are ${(lvl - 100)} more aliens!`
                 } 
@@ -353,11 +374,12 @@ const upgradeCannons = () => {
         }
     }
 }
-// console.log(enemys[0].hull)
-//console.log(player)
 
-//fight()
-//play()
-// const enemy = new alien
-// console.log(enemys)
- console.log(player)
+// const newHighScore = () => {
+//     if (lvl > highScore[1]) {
+//         let person =prompt("New high score whats your name?", "player 1")
+//         highScore[0] = person
+//         highScore[1] = lvl
+//         topDog.innerHTML = highScore
+//     }
+// }

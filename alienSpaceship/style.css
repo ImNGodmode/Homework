@@ -10,6 +10,7 @@ body{
     width: 90vw;
     margin-left: 5vw;
     color: white;
+    font-size: xx-large;
     display: flex;
     justify-content: space-around;
 }
@@ -26,22 +27,33 @@ body{
 .space{
     background-image: url(https://thumbs.gfycat.com/RemoteImpishBlackbear-size_restricted.gif);
     background-size: cover;
-    height: 50vh;
-    width: 60vw;
-    margin-top: 10vh;
-    margin-left: 20vw;
+    height: 60vh;
+    width: 80vw;
+    margin-top: 3vh;
+    margin-left: 9vw;
     display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#aliens{
+    /* border: solid red 1px; */
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#nme{
+    height: 0%;
 }
 #player{
+    /* border: solid blue; */
     height: 10vh;
-    width: 7vw;
-    align-self: flex-end;
-    margin-left: 27vw
+    width: 7vw;  
+    align-self: center;
 }
 #ship{
     height: 10vh;
-    width: 7vw;
-    
+    width: 7vw;    
 }
 .controleBox{
     border: solid rgb(12, 164, 146) .5px;
@@ -72,14 +84,8 @@ body{
     border-radius: 22px;
     display: flex;
     text-align: center;
-    align-items: center;  
-}
-#aliens{
-    border: solid white 1px;
-    height: 50%;
-    width: 60vw;
-    display: flex;
-    justify-content: space-around;
+    align-items: center;
+   
 }
 #infoBox{
     border: solid white;
@@ -90,6 +96,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: xx-large;
 }
 .fight{
     border: solid rgb(12, 164, 146) 1px;
