@@ -57,7 +57,25 @@ const radio = {
         let channel = Math.floor(Math.random()*3)
         let track = Math.floor(Math.random()*3)
         //console.log(channel)
-        console.log(`Now Playing: ${radio.stations[channel].songs[track].title} by ${radio.stations[channel].songs[track].artist}`)
+        console.log(`Now Playing: ${radio.stations[channel].songs[track].title} by ${radio.stations[channel].songs[track].artist} on ${radio.stations[channel].name}`)
     }
 }
 radio.changeChannel()
+
+
+
+// class song  {
+//     constructor(title, artist){
+//     this.title = title;
+//     this.artist = artist;
+//     }
+// }
+// const track = new song
+// track.this.title = "loose yourslef"
+// track.this.artist = "eminem"
+
+// // for (i=0; i<3; i++){
+// //     const track = new song
+// //     radio.stations[0].songs.push(track)
+
+// // }
