@@ -39,6 +39,54 @@ app.get('/', (req,res) => {
     //         res.send(`<h1>${req.params.question} <br> ${answers[m]} </h1>`)
     //     } )
 
+    // fibonacci
+    let fib = [0, 1]
+
+    let a = 0
+    let b = 1
+    let c = 1 
+    let isFib 
+
+    //test area
+    // while(c < isFib){
+    //     c = a + b
+    //     fib.push(c)
+    //     a = b 
+    //     b = c
+    // }
+    // let removed = fib.pop 
+    // const checkFib = () =>{
+    //     if( removed === isFib){
+    //         console.log("Very good. It is Fibonacci.")
+    //     }else {
+    //         console.log("I can tell this is not a fibonacci number.")
+    //     }
+    // }
+
+    // checkFib()
+
+        
+//////////////////////////////////////////////////////////////////////////////
+    app.get('/fibonnaci/:number', (req,res) => {
+        isFib = parseInt(req.params.number)
+        while(c < isFib){
+            c = a + b
+            fib.push(c)
+            a = b 
+            b = c
+        }
+        let removed = fib.pop()
+        if( removed == isFib){
+                    res.send(`<h1>Very good. It is Fibonacci.</h1>`)
+                }else {
+                    res.send(`<h1>I can tell this is not a fibonacci number.</h1>`)
+                }
+    
+    })
+   
+ 
+
+
 
 
 app.listen(3000, () => {
