@@ -5,7 +5,7 @@ app.get('/', (req,res) => {
     res.send('<h1>Hello World!</h1>')
 } )
 
-// Greetings
+// Greetings 
 
 // app.get('/greeting', (req,res) => {
 //     res.send('<h1>Hello, stranger!</h1>')
