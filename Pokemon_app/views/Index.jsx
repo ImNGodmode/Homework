@@ -17,7 +17,7 @@ const myStyle = {
                               <li key={i}>
                                  
                                   <a href={`./pokemon/${i}`}>
-                                      {poke.name}
+                                      {poke.name.charAt(0).toUpperCase() + poke.name.slice(1)}
                                   </a>
                                 
                               </li>
