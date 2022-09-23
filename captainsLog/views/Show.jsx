@@ -20,6 +20,9 @@ class Show extends React.Component {
                             <input type='submit' value='DELETE'></input>
 
                         </form>
+            {/* edit*/}
+            <a href={`logs/${log._id}/edit`}>Edit Log</a> 
+
         </div>
       </DefaultLayout>
     );

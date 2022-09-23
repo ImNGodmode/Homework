@@ -19,8 +19,8 @@ class Index extends React.Component{
                         <a href={`/logs/${log.id}`}>{log.title}</a>  
                        
 
-                        {/* edit
-                        <a href={`students/${student._id}/edit`}>Edit Student</a> */}
+                        {/* edit*/}
+                         <a href={`logs/${log._id}/edit`}>Edit Log</a> 
 
                         {/* delete */}
                         <form action= {`/logs/${log._id}?_method=DELETE`} method="POST">

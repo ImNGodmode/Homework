@@ -53,6 +53,37 @@ app.post('/logs', (req, res) =>{
     res.redirect('/logs')
 })
 
+// edit
+app.get("/logs/:id/edit", (req, res) => {
+    Logs.findById(req.params.id, (err, foundLog) => {
+      //findLog
+      console.log(err)
+      if (!err) {
+        res.render("Edit", {
+          log: foundLog,
+          //pass in the foundStudent so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
+
+//update
+// --------->PUT/PATCH [U]
+app.put("/logs/:id", (req, res) => {
+    if (req.body.shipIsBroken === "on") {
+      req.body.shipIsBroken = true;
+    } else {
+      req.body.shipIsBroken = false;
+    }
+    Logs.findByIdAndUpdate(req.params.id, req.body, (err, updatedlog) => {
+        console.log(err)
+      console.log(updatedlog);
+      res.redirect(`/logs/${req.params.id}`);
+    });
+  });
+
 // ------>DELETE   [D]
 app.delete("/logs/:id", (req, res) => {
     Logs.findByIdAndRemove(req.params.id, (err, data) => {
