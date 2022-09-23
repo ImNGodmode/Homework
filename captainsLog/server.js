@@ -53,8 +53,16 @@ app.post('/logs', (req, res) =>{
     res.redirect('/logs')
 })
 
-
-
+//show
+app.get("/logs/:id", (req, res) => {
+    Logs.findById(req.params.id, (err,foundLog) => {
+        console.log(err)
+      console.log("Found: ", foundLog);
+      res.render("Show", {
+        log: foundLog,
+      });
+    });
+  });
 
 app.listen(3000, () => {
     console.log('listning on port 3000')
