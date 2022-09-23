@@ -91,6 +91,30 @@ app.delete("/logs/:id", (req, res) => {
     });
   });
 
+// seeds
+
+app.get('/logs/seed', (req, res) => {
+    Logs.create([
+        {
+            title: 'close one',
+            entry: 'ran into pirates today didnt think we were going to make it out of there.',
+            shipIsBroken: true
+         },
+         {
+            title: 'a good day',
+            entry: 'looks like we did loose the pirates. we got most of the emergency repairs completed today',
+            shipIsBroken: false
+         },
+         {
+            title: 'BOOTY!!',
+            entry: 'the title says it all we found the promise land today',
+            shipIsBroken: false
+         }
+    ], (err, data) => {
+        res.redirect('/logs')
+    })
+})
+
 //show
 app.get("/logs/:id", (req, res) => {
     Logs.findById(req.params.id, (err,foundLog) => {
