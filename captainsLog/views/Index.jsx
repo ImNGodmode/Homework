@@ -23,10 +23,10 @@ class Index extends React.Component{
                         <a href={`students/${student._id}/edit`}>Edit Student</a> */}
 
                         {/* delete */}
-                        {/* <form action= {`/students/${student._id}?_method=DELETE`} method="POST">
+                        <form action= {`/logs/${log._id}?_method=DELETE`} method="POST">
                             <input type='submit' value='DELETE'></input>
 
-                        </form> */}
+                        </form>
                     </li>
 
                     )

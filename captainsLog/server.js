@@ -53,6 +53,13 @@ app.post('/logs', (req, res) =>{
     res.redirect('/logs')
 })
 
+// ------>DELETE   [D]
+app.delete("/logs/:id", (req, res) => {
+    Logs.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/logs");
+    });
+  });
+
 //show
 app.get("/logs/:id", (req, res) => {
     Logs.findById(req.params.id, (err,foundLog) => {

@@ -13,8 +13,13 @@ class Show extends React.Component {
           {log.entry}
           <br /> Is the ship damaged{" "}
           {log.shipIsBroken
-            ? "Ship is ship shape"
-            : "Get someone to the poop deck we are taking on water"}
+            ? "Get someone to the poop deck we are taking on water"
+            : "The Ship is ship shape"}
+            {/* delete */}
+            <form action= {`/logs/${log._id}?_method=DELETE`} method="POST">
+                            <input type='submit' value='DELETE'></input>
+
+                        </form>
         </div>
       </DefaultLayout>
     );
