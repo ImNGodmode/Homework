@@ -7,9 +7,9 @@ class New extends React.Component {
       <DefaultLayout title={"New logs Page"}>
         <div>
           <form action="/logs" method="POST">
-            title: <input type="text" name="title" />
+            title: <input type="text" name="title" required/>
             <br />
-            entry: <input type="textarea" name="entry" />
+            entry: <textarea rows='5' columns='100' name="entry" required />
             <br />
             Is Ship Broken: <input type="checkbox" name="isShipBroken" />
             <br />

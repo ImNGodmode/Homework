@@ -18,7 +18,7 @@ class Edit extends React.Component {
           />
           <br />
           entry:{" "}
-          <input type="text" name="gpa" defaultValue={this.props.log.entry} />
+          <textarea rows='5' columns='100' name="entry" defaultValue={this.props.log.entry} />
           <br />
           Is Ship Broken:
           {this.props.log.shipIsBroken ? (

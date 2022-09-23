@@ -35,23 +35,25 @@ app.get('/logs', (req, res)  => {
     })
 })
 
+//post
+app.post('/logs', (req, res) =>{
+  if (req.body.shipIsBroken === "on") {
+      req.body.shipIsBroken = true
+  } else {
+      req.body.shipIsBroken = false
+  }
+  Logs.create(req.body, (err, createdLog) => {
+      console.log(err)
+  })
+  res.redirect('/logs')
+})
+
 //new
 app.get('/logs/new', (req, res) => {
     res.render('New', {})
 })
 
-//post
-app.post('/logs', (req, res) =>{
-    if (req.body.shipIsBroken === "on") {
-        req.body.shipIsBroken = true
-    } else {
-        req.body.shipIsBroken = false
-    }
-    Logs.create(req.body, (err, createdLog) => {
-        console.log(err)
-    })
-    res.redirect('/logs')
-})
+
 
 // edit
 app.get("/logs/:id/edit", (req, res) => {
