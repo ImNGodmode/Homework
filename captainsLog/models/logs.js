@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const logsSchema = new mongoose.Schema({
-    name: {type:String,required: true},
-    gpa: {type:String,required: true},
-    isPassing: Boolean
+    title: {type:String,required: true},
+    entry: {type:String,required: true},
+    shipIsBroken: Boolean
 })
 // the Outline for ALL students we create/populate in dataset
 

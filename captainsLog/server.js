@@ -35,6 +35,10 @@ app.get('/logs', (req, res)  => {
     })
 })
 
+//new
+app.get('/logs/new', (req, res) => {
+    res.render('New', {})
+})
 
 
 
