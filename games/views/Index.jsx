@@ -9,15 +9,15 @@ class Index extends React.Component{
             
             <DefaultLayout title={"Games Dashboard"}>
                 <nav>
-                    <a href={'/#'}>Add New Xbox game</a><br/>
-                    
+                    <a href={'/xbox/new'}>Add New Xbox game</a><br/>
+
                     <a href={'/#'}>Add New Pc game</a>
                 </nav>
                 <ul>
                 {xboxGames.map((xboxGame, i) => {
                     return (
                         <li key={i}>
-                        {/* each log title */}
+                        {/* each title */}
                         <a href={`/Xbox/${xboxGame.id}`}>{xboxGame.title}</a>  
                        
 

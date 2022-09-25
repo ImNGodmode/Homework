@@ -33,12 +33,24 @@ app.get('/', (req, res)  => {
 
 
 //post
-
+app.post('/', (req, res) =>{
+    if (req.body.wasItGood === "on") {
+        req.body.wasItGood = true
+    } else {
+        req.body.wasItGood = false
+    }
+    Xbox.create(req.body, (err, createdXboxGame) => {
+        console.log(err)
+    })
+    res.redirect('/')
+  })
 
 
 //new
 
-
+app.get('/xbox/new', (req, res) => {
+    res.render('NewXbox.jsx', {})
+})
 
 //edit
 
