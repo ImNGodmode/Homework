@@ -70,7 +70,15 @@ app.get('/xbox/new', (req, res) => {
 
 
 //show
-
+app.get("/xbox/:id", (req, res) => {
+    Xbox.findById(req.params.id, (err,foundXboxGame) => {
+        console.log(err)
+      console.log("Found: ", foundXboxGame);
+      res.render("Show", {
+        xboxGame: foundXboxGame,
+      });
+    });
+  });
 
 
 app.listen(3000, () => {
