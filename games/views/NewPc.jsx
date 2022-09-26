@@ -1,9 +1,9 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
-class NewXbox extends React.Component {
+class NewPc extends React.Component {
   render() {
     return (
-      <DefaultLayout title={"New Xbox Game Page"}>
+      <DefaultLayout title={"New Pc Game Page"}>
         <div>
           <form action="/" method="POST">
             title: <input type="text" name="title" required/>
@@ -12,7 +12,7 @@ class NewXbox extends React.Component {
             <br />
             Was it good though: <input type="checkbox" name="wasItGood" />
             <br />
-            <input type="submit" name="" value="Create Xbox Game" />
+            <input type="submit" name="" value="Create Pc Game" />
           </form>
         </div>
       </DefaultLayout>
@@ -20,4 +20,4 @@ class NewXbox extends React.Component {
   }
 }
 
-module.exports = NewXbox;
+module.exports = NewPc;

@@ -13,6 +13,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 //middleware
 app.use(express.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
+app.use(express.static('public'));
 //database
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
@@ -50,6 +51,10 @@ app.post('/', (req, res) =>{
 
 app.get('/xbox/new', (req, res) => {
     res.render('NewXbox.jsx', {})
+})
+
+app.get('/pc/new', (req, res) => {
+    res.render('NewPc.jsx', {})
 })
 
 //edit
@@ -125,6 +130,16 @@ app.get("/xbox/:id", (req, res) => {
       console.log("Found: ", foundXboxGame);
       res.render("ShowXbox", {
         xboxGame: foundXboxGame,
+      });
+    });
+  });
+
+  app.get("/pc/:id", (req, res) => {
+    Pc.findById(req.params.id, (err,foundPcGame) => {
+        console.log(err)
+      console.log("Found: ", foundPcGame);
+      res.render("ShowPc", {
+        pcGame: foundPcGame,
       });
     });
   });

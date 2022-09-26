@@ -11,7 +11,7 @@ class Index extends React.Component{
                 <nav>
                     <a href={'/xbox/new'}>Add New Xbox game</a><br/>
 
-                    <a href={'/#'}>Add New Pc game</a>
+                    <a href={'/pc/new'}>Add New Pc game</a>
                 </nav>
                 <ul>
                 {xboxGames.map((xboxGame, i) => {
@@ -22,7 +22,7 @@ class Index extends React.Component{
                        
 
                         {/* edit*/}
-                         <a href={`Xbox/${xboxGame._id}/edit`}>Edit Xbox Game</a> 
+                         <a href={`Xbox/${xboxGame._id}/edit`}>Edit Game</a> 
 
                         {/* delete */}
                         <form action= {`/Xbox/${xboxGame._id}?_method=DELETE`} method="POST">
