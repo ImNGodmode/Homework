@@ -53,20 +53,69 @@ app.get('/xbox/new', (req, res) => {
 })
 
 //edit
-
+app.get("/xbox/:id/edit", (req, res) => {
+    Xbox.findById(req.params.id,    (err, foundXboxGame) => {
+      //find xbox game
+      console.log(err)
+      if (!err) {
+        res.render("EditXbox", {
+            xboxGame: foundXboxGame,
+          //pass in the foundxboxgame so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
 
 
 //update
 
-
+app.put("/xbox/:id", (req, res) => {
+    if (req.body.wasItGood === "on") {
+      req.body.wasItGood = true;
+    } else {
+      req.body.wasItGood = false;
+    }
+    Xbox.findByIdAndUpdate(req.params.id, req.body, (err, updatedXboxGame) => {
+        console.log(err)
+      console.log(updatedXboxGame);
+      res.redirect(`/xbox/${req.params.id}`);
+    });
+  });
 
 
 //delete
-
+app.delete("/xbox/:id", (req, res) => {
+    Xbox.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/");
+    });
+  });
 
 
 //seeds
 
+app.get('/xbox/seed', (req, res) => {
+    Xbox.create([
+        {
+            title: 'Halo',
+            cost: '$50',
+            wasItGood: true
+         },
+         {
+            title: 'Halo 2',
+            cost: '$60',
+            wasItGood: true
+         },
+         {
+            title: 'Halo 3',
+            cost: '$60',  
+            wasItGood: true
+         }
+    ], (err, data) => {
+        res.redirect('/')
+    })
+})
 
 
 //show
@@ -74,7 +123,7 @@ app.get("/xbox/:id", (req, res) => {
     Xbox.findById(req.params.id, (err,foundXboxGame) => {
         console.log(err)
       console.log("Found: ", foundXboxGame);
-      res.render("Show", {
+      res.render("ShowXbox", {
         xboxGame: foundXboxGame,
       });
     });

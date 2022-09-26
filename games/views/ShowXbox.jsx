@@ -1,6 +1,6 @@
 const React = require("react");
 const DefaultLayout = require("./layouts/default");
-class Show extends React.Component {
+class ShowXbox extends React.Component {
   render() {
     const {xboxGame}= this.props;
       return (
@@ -16,16 +16,16 @@ class Show extends React.Component {
             ? "OHHHH HELL YEAH!!!"
             : "NAAAHHHHH"}
             {/* delete */}
-            {/* <form action= {`/logs/${log._id}?_method=DELETE`} method="POST">
+            <form action= {`/xbox/${xboxGame._id}?_method=DELETE`} method="POST">
                             <input type='submit' value='DELETE'></input>
 
-                        </form> */}
+                        </form>
             {/* edit*/}
-            {/* <a href={`logs/${log._id}/edit`}>Edit Log</a>  */}
+            <a href={`xbox/${xboxGame._id}/edit`}>Edit game</a> 
 
         </div>
       </DefaultLayout>
     );
   }
 }
-module.exports = Show;
+module.exports = ShowXbox;
