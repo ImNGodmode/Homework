@@ -9,7 +9,7 @@ class Index extends React.Component{
             
             <DefaultLayout title={"Dashboard"}>
                 <nav>
-                    <a href={'#'}>Add New user</a><br/>
+                    <a href={'/user/new'}>Add New user</a><br/>
 
                     {/* <a href={'/pc/new'}>Add New Pc game</a> */}
                 </nav>

@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     isMale: Boolean,
     useHormones: Boolean,
 })
-// the Outline for ALL games we create/populate in dataset
+// the Outline for ALL users we create/populate in dataset
 
 const User = mongoose.model("User", userSchema)
 
