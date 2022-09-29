@@ -26,8 +26,8 @@ class ShowUser extends React.Component {
           {user.useHormones 
             ? "Yes I use gear, we should consult a Doctor"
             : "No I am Natty"} <br/>
-           <a href='#' ><h3>Macros</h3></a>
-            
+           <a href= {`/user/${user._id}/Macros/new`} ><h3>Macros</h3></a>
+            {user.macros[0].calories}
 
         </div>
       </DefaultLayout>

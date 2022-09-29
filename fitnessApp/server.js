@@ -109,12 +109,35 @@ app.get("/user/:id", (req, res) => {
         console.log(err)
         console.log("Found: ", founduser);
         res.render("ShowUser", {
+            user: founduser,
+        })       
+    }).populate({path: 'macros', select: 'calories protein carbs fats'});   
+})
+
+//macros new route
+
+app.get('/user/:id/Macros/new', (req, res) => {
+    User.findById(req.params.id, (err,founduser) => {
+        console.log(err)
+        console.log("Found: ", founduser);
+        res.render("NewMacros", {
         user: founduser,
       });
     });
   });
 
+    
 
+
+//macros post
+
+app.post('/user/:id/Macros/new', (req, res) =>{
+   
+    Macros.create(req.body, (err, createdMacros) => {
+        console.log(createdMacros.id)
+        res.redirect(`/user/${req.body.owner}`)
+    })  
+})
 
 
 //set port

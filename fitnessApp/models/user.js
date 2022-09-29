@@ -9,6 +9,16 @@ const userSchema = new mongoose.Schema({
 })
 // the Outline for ALL users we create/populate in dataset
 
+userSchema.virtual('macros',{
+    ref: 'Macros',
+    localField: '_id',
+    foreignField: 'owner'
+})
+
+userSchema.set('toObject', {virtuals: true})
+userSchema.set('toJSON', {virtuals: true})
+
+
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
