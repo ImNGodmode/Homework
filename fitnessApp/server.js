@@ -139,6 +139,38 @@ app.post('/user/:id/Macros/new', (req, res) =>{
     })  
 })
 
+//macros edit
+app.get("/user/Macros/:id", (req, res) => {
+    Macros.findById(req.params.id,    (err, foundmacro) => {
+      //find macro
+      console.log(err)
+      if (!err) {
+        res.render("EditMacro", {
+            macro: foundmacro,
+          //pass in the foundmacro so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
+
+  //macro update
+  app.put("/user/Macros/:id", (req, res) => {
+    
+    Macros.findByIdAndUpdate(req.params.id, req.body, (err, updatedmacro) => {
+        console.log(err)
+        console.log(updatedmacro);
+        res.redirect(`/user/${updatedmacro.owner}`);
+    });
+  });
+// macro delete
+app.delete("/user/Macros/:id", (req, res) => {
+    Macros.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/");
+    });
+  });
+
 
 //set port
 app.listen(3000, () => {

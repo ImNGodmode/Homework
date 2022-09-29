@@ -21,14 +21,7 @@ class Index extends React.Component{
                         <a href={`/user/${user.id}`}>{user.firstName}{' '}{user.lastName}</a>  
                        
 
-                        {/* edit*/}
-                         {/* <a href={`Xbox/${xboxGame._id}/edit`}>Edit Game</a>  */}
-
-                        {/* delete */}
-                        {/* <form action= {`/Xbox/${xboxGame._id}?_method=DELETE`} method="POST">
-                            <input type='submit' value='DELETE'></input>
-
-                        </form> */}
+                
                     </li>
 
                     )

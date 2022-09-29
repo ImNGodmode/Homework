@@ -27,7 +27,23 @@ class ShowUser extends React.Component {
             ? "Yes I use gear, we should consult a Doctor"
             : "No I am Natty"} <br/>
            <a href= {`/user/${user._id}/Macros/new`} ><h3>Macros</h3></a>
-            {user.macros[0].calories}
+
+            {user.macros.map((macro, i) => {
+                    return (
+                        <li key={i}>
+                        {/* each macro set */}
+                        calories: {macro.calories}<br/>
+                        protein: {macro.protein}<br/>
+                        carbs: {macro.carbs}<br/>
+                        fats: {macro.fats} <br/>
+                        <a href={`/user/Macros/${macro._id}`}>Edit Macro Entry</a>
+                        <form action= {`/user/Macros/${macro._id}?_method=DELETE`} method="POST">
+                            <input type='submit' value='DELETE'></input>
+                        </form>
+                    </li>
+
+                    )
+                })}
 
         </div>
       </DefaultLayout>
