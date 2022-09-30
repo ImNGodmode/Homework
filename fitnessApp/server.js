@@ -7,6 +7,8 @@ require('dotenv').config()
 const User = require('./models/user')
 const Macros = require('./models/macros')
 const Push = require('./models/push')
+const Pull = require('./models/pull')
+const Legs = require('./models/legs')
 
 //view engine
 app.set('view engine', 'jsx')
@@ -112,7 +114,7 @@ app.get("/user/:id", (req, res) => {
         res.render("ShowUser", {
             user: founduser,
         })       
-    }).populate({path: 'macros', select: 'calories protein carbs fats'}).populate({path: 'push', select: 'bench inclineBench pecdec revpecdec pushdowns latraise declinesitups'});   
+    }).populate({path: 'macros', select: 'calories protein carbs fats'}).populate({path: 'push', select: 'bench inclineBench pecdec revpecdec pushdowns latraise declinesitups'}).populate({path: 'pull', select: 'pulldowns cableRows latprayers rows preacherCurls spiderCurls woodchoppers'}).populate({path: 'legs', select:'squats legPress calfRaise hipThrust'});   
 })
 
 //macros new route
@@ -165,7 +167,7 @@ app.get("/user/Macros/:id", (req, res) => {
         res.redirect(`/user/${updatedmacro.owner}`);
     });
   });
-  
+
 // macro delete
 app.delete("/user/Macros/:id", (req, res) => {
     Macros.findByIdAndRemove(req.params.id, (err, data) => {
@@ -174,6 +176,7 @@ app.delete("/user/Macros/:id", (req, res) => {
   });
 
   // push new
+
   app.get('/user/:id/push/new', (req, res) => {
     User.findById(req.params.id, (err,founduser) => {
         console.log(err)
@@ -194,7 +197,7 @@ app.post('/user/:id/push/new', (req, res) =>{
     })  
 })
 
-//macros edit
+//push edit
 app.get("/user/Push/:id", (req, res) => {
     Push.findById(req.params.id,    (err, foundpush) => {
       //find push
@@ -223,6 +226,116 @@ app.get("/user/Push/:id", (req, res) => {
 // push delete
 app.delete("/user/push/:id", (req, res) => {
     Push.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/");
+    });
+  });
+
+  // pull new
+  
+  app.get('/user/:id/pull/new', (req, res) => {
+    User.findById(req.params.id, (err,founduser) => {
+        console.log(err)
+        console.log("Found: ", founduser);
+        res.render("NewPull", {
+        user: founduser,
+      });
+    });
+  });  
+
+  //pull post
+
+app.post('/user/:id/pull/new', (req, res) =>{
+   
+    Pull.create(req.body, (err, createdpull) => {
+        console.log(createdpull.id)
+        res.redirect(`/user/${req.body.owner}`)
+    })  
+})
+
+//pull edit
+app.get("/user/Pull/:id", (req, res) => {
+    Pull.findById(req.params.id,    (err, foundpull) => {
+      //find pull
+      console.log(err)
+      if (!err) {
+        res.render("EditPull", {
+            pull: foundpull,
+          //pass in the foundpull so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
+
+  //pull update
+  app.put("/user/pull/:id", (req, res) => {
+    
+    Pull.findByIdAndUpdate(req.params.id, req.body, (err, updatedpull) => {
+        console.log(err)
+        console.log(updatedpull);
+        res.redirect(`/user/${updatedpull.owner}`);
+    });
+  });
+
+// pull delete
+app.delete("/user/push/:id", (req, res) => {
+    Pull.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/");
+    });
+  });
+
+  // legs new
+  
+  app.get('/user/:id/legs/new', (req, res) => {
+    User.findById(req.params.id, (err,founduser) => {
+        console.log(err)
+        console.log("Found: ", founduser);
+        res.render("Newlegs", {
+        user: founduser,
+      });
+    });
+  });  
+
+  //legs post
+
+app.post('/user/:id/legs/new', (req, res) =>{
+   
+    Legs.create(req.body, (err, createdLegs) => {
+        console.log(createdpull.id)
+        res.redirect(`/user/${req.body.owner}`)
+    })  
+})
+
+//legs edit
+app.get("/user/legs/:id", (req, res) => {
+    Legs.findById(req.params.id,    (err, foundlegs) => {
+      //find legs
+      console.log(err)
+      if (!err) {
+        res.render("EditLegs", {
+            legs: foundlegs,
+          //pass in the foundlegs so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
+
+  //legs update
+  app.put("/user/legs/:id", (req, res) => {
+    
+    Legs.findByIdAndUpdate(req.params.id, req.body, (err, updatedlegs) => {
+        console.log(err)
+        console.log(updatedlegs);
+        res.redirect(`/user/${updatedlegs.owner}`);
+    });
+  });
+
+// legs delete
+app.delete("/user/legs/:id", (req, res) => {
+    Legs.findByIdAndRemove(req.params.id, (err, data) => {
       res.redirect("/");
     });
   });

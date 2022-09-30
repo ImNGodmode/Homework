@@ -49,7 +49,7 @@ class ShowUser extends React.Component {
             {user.push.map((push, i) => {
                     return (
                         <li key={i}>
-                        {/* each macro set */}
+                        {/* each push set */}
                         Bench: {push.bench}<br/>
                         Incline Bench: {push.inclineBench}<br/>
                         pecdec: {push.pecdec}<br/>
@@ -59,6 +59,28 @@ class ShowUser extends React.Component {
                         declinesitups: {push.declinesitups} <br/>
                         <a href={`/user/push/${push._id}`}>Edit Push Entry</a>
                         <form action= {`/user/push/${push._id}?_method=DELETE`} method="POST">
+                            <input type='submit' value='DELETE'></input>
+                        </form>
+                    </li>
+
+                    )
+                })}
+
+            <a href= {`/user/${user._id}/pull/new`} ><h3>Pull</h3></a>
+
+            {user.pull.map((pull, i) => {
+                    return (
+                        <li key={i}>
+                        {/* each pull set  */}
+                        Pulldowns: {pull.pulldowns}<br/>
+                        Cable Rows: {pull.cableRows}<br/>
+                        Lat Prayers: {pull.latprayers}<br/>
+                        Rows: {pull.rows} <br/>
+                        Preacher Cruls: {pull.preacherCurls} <br/>
+                        Spider Curls: {pull.spiderCurls} <br/>
+                        woodchoppers: {pull.woodchoppers} <br/>
+                        <a href={`/user/pull/${pull._id}`}>Edit Pull Entry</a>
+                        <form action= {`/user/pull/${pull._id}?_method=DELETE`} method="POST">
                             <input type='submit' value='DELETE'></input>
                         </form>
                     </li>

@@ -23,7 +23,7 @@ class NewPush extends React.Component {
             <br />
             Decline Situps: <input type="text" name="declinesitups" required/>
             <br />
-            <input type="submit" name="" value="Create New Macros" />
+            <input type="submit" name="" value="Create New Push" />
           </form>
         </div>
       </DefaultLayout>

@@ -19,6 +19,16 @@ userSchema.virtual('push',{
     localField: '_id',
     foreignField: 'owner'
 })
+userSchema.virtual('pull',{
+    ref: 'Pull',
+    localField: '_id',
+    foreignField: 'owner'
+})
+userSchema.virtual('legs',{
+    ref: 'Legs',
+    localField: '_id',
+    foreignField: 'owner'
+})
 
 userSchema.set('toObject', {virtuals: true})
 userSchema.set('toJSON', {virtuals: true})
