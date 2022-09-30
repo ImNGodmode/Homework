@@ -14,6 +14,11 @@ userSchema.virtual('macros',{
     localField: '_id',
     foreignField: 'owner'
 })
+userSchema.virtual('push',{
+    ref: 'Push',
+    localField: '_id',
+    foreignField: 'owner'
+})
 
 userSchema.set('toObject', {virtuals: true})
 userSchema.set('toJSON', {virtuals: true})

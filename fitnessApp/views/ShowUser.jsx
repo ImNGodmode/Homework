@@ -44,6 +44,27 @@ class ShowUser extends React.Component {
 
                     )
                 })}
+             <a href= {`/user/${user._id}/push/new`} ><h3>Push</h3></a>
+
+            {user.push.map((push, i) => {
+                    return (
+                        <li key={i}>
+                        {/* each macro set */}
+                        Bench: {push.bench}<br/>
+                        Incline Bench: {push.inclineBench}<br/>
+                        pecdec: {push.pecdec}<br/>
+                        revpecdec: {push.revpecdec} <br/>
+                        pushdowns: {push.pushdowns} <br/>
+                        latraise: {push.latraise} <br/>
+                        declinesitups: {push.declinesitups} <br/>
+                        <a href={`/user/push/${push._id}`}>Edit Push Entry</a>
+                        <form action= {`/user/push/${push._id}?_method=DELETE`} method="POST">
+                            <input type='submit' value='DELETE'></input>
+                        </form>
+                    </li>
+
+                    )
+                })}
 
         </div>
       </DefaultLayout>

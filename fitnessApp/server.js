@@ -6,6 +6,7 @@ const methodOverride = require ('method-override')
 require('dotenv').config()
 const User = require('./models/user')
 const Macros = require('./models/macros')
+const Push = require('./models/push')
 
 //view engine
 app.set('view engine', 'jsx')
@@ -111,7 +112,7 @@ app.get("/user/:id", (req, res) => {
         res.render("ShowUser", {
             user: founduser,
         })       
-    }).populate({path: 'macros', select: 'calories protein carbs fats'});   
+    }).populate({path: 'macros', select: 'calories protein carbs fats'}).populate({path: 'push', select: 'bench inclineBench pecdec revpecdec pushdowns latraise declinesitups'});   
 })
 
 //macros new route
@@ -164,6 +165,7 @@ app.get("/user/Macros/:id", (req, res) => {
         res.redirect(`/user/${updatedmacro.owner}`);
     });
   });
+  
 // macro delete
 app.delete("/user/Macros/:id", (req, res) => {
     Macros.findByIdAndRemove(req.params.id, (err, data) => {
@@ -171,6 +173,59 @@ app.delete("/user/Macros/:id", (req, res) => {
     });
   });
 
+  // push new
+  app.get('/user/:id/push/new', (req, res) => {
+    User.findById(req.params.id, (err,founduser) => {
+        console.log(err)
+        console.log("Found: ", founduser);
+        res.render("NewPush", {
+        user: founduser,
+      });
+    });
+  });  
+
+  //push post
+
+app.post('/user/:id/push/new', (req, res) =>{
+   
+    Push.create(req.body, (err, createdpush) => {
+        console.log(createdpush.id)
+        res.redirect(`/user/${req.body.owner}`)
+    })  
+})
+
+//macros edit
+app.get("/user/Push/:id", (req, res) => {
+    Push.findById(req.params.id,    (err, foundpush) => {
+      //find push
+      console.log(err)
+      if (!err) {
+        res.render("EditPush", {
+            push: foundpush,
+          //pass in the foundpush so we can prefill the form
+        });
+      } else {
+        res.send({ msg: err.message });
+      }
+    });
+  });
+
+  //push update
+  app.put("/user/push/:id", (req, res) => {
+    
+    Push.findByIdAndUpdate(req.params.id, req.body, (err, updatedpush) => {
+        console.log(err)
+        console.log(updatedpush);
+        res.redirect(`/user/${updatedpush.owner}`);
+    });
+  });
+
+// push delete
+app.delete("/user/push/:id", (req, res) => {
+    Push.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect("/");
+    });
+  });
 
 //set port
 app.listen(3000, () => {
