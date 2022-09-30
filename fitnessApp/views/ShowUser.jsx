@@ -88,6 +88,27 @@ class ShowUser extends React.Component {
                     )
                 })}
 
+                <a href= {`/user/${user._id}/legs/new`} ><h3>Legs</h3></a>
+
+                {user.legs.map((leg, i) => {
+                        return (
+                            <li key={i}>
+                            {/* each legs set  */}
+                            Squats: {leg.squats}<br/>
+                            Leg Press: {leg.legPress}<br/>
+                            Calf Raise: {leg.calfRaise}<br/>
+                            Hip Thrusts: {leg.hipThrust} <br/>
+                            Ab Coaster: {leg.abCoaster} <br/>
+                            
+                            <a href={`/user/legs/${leg._id}`}>Edit Legs Entry</a>
+                            <form action= {`/user/legs/${leg._id}?_method=DELETE`} method="POST">
+                                <input type='submit' value='DELETE'></input>
+                            </form>
+                        </li>
+
+                        )
+                    })}
+
         </div>
       </DefaultLayout>
     );

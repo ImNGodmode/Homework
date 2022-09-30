@@ -114,7 +114,7 @@ app.get("/user/:id", (req, res) => {
         res.render("ShowUser", {
             user: founduser,
         })       
-    }).populate({path: 'macros', select: 'calories protein carbs fats'}).populate({path: 'push', select: 'bench inclineBench pecdec revpecdec pushdowns latraise declinesitups'}).populate({path: 'pull', select: 'pulldowns cableRows latprayers rows preacherCurls spiderCurls woodchoppers'}).populate({path: 'legs', select:'squats legPress calfRaise hipThrust'});   
+    }).populate({path: 'macros', select: 'calories protein carbs fats'}).populate({path: 'push', select: 'bench inclineBench pecdec revpecdec pushdowns latraise declinesitups'}).populate({path: 'pull', select: 'pulldowns cableRows latprayers rows preacherCurls spiderCurls woodchoppers'}).populate({path: 'legs', select:'squats legPress calfRaise hipThrust abCoaster'});   
 })
 
 //macros new route
@@ -301,8 +301,8 @@ app.delete("/user/push/:id", (req, res) => {
 
 app.post('/user/:id/legs/new', (req, res) =>{
    
-    Legs.create(req.body, (err, createdLegs) => {
-        console.log(createdpull.id)
+    Legs.create(req.body, (err, createdlegs) => {
+        console.log(createdlegs.id)
         res.redirect(`/user/${req.body.owner}`)
     })  
 })
