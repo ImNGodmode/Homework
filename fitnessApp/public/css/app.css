@@ -10,9 +10,12 @@ body {
     background-size: cover;
     height: 100vh;
     width: 100vw;
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     flex-direction: column;
+=======
+>>>>>>> c5868fa89877fd434454804db946ba92d1b2bd81
   }
   .user{
     background: url(https://wallpaperaccess.com/full/834264.jpg);
