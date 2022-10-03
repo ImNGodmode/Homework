@@ -5,9 +5,9 @@ class NewPull extends React.Component {
     const {user} = this.props
     return (
       <DefaultLayout title={"New Pull Page"}>
-        <div>
+        <div className="pull">
           <form action="/user/:id/pull/new" method="POST">
-            Owner: <input type="text" name="owner" defaultValue={user._id}required/>
+            Owner (Do not change!): <input type="text" name="owner" defaultValue={user._id}required/>
             <br />
             Pulldowns: <input type="text" name="pulldowns" required/>
             <br />

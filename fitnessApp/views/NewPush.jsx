@@ -5,9 +5,9 @@ class NewPush extends React.Component {
     const {user} = this.props
     return (
       <DefaultLayout title={"New Push Page"}>
-        <div>
+        <div className="push">
           <form action="/user/:id/push/new" method="POST">
-            Owner: <input type="text" name="owner" defaultValue={user._id}required/>
+            Owner (Do not change!): <input type="text" name="owner" defaultValue={user._id}required/>
             <br />
             Bench: <input type="text" name="bench" required/>
             <br />

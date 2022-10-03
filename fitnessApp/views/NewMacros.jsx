@@ -5,9 +5,9 @@ class NewMacros extends React.Component {
     const {user} = this.props
     return (
       <DefaultLayout title={"New Macros Page"}>
-        <div>
+        <div className="macro">
           <form action="/user/:id/Macros/new" method="POST">
-            Owner: <input type="text" name="owner" defaultValue={user._id}required/>
+            Owner (Do not change!): <input type="text" name="owner" defaultValue={user._id}required/>
             <br />
             Calories: <input type="text" name="calories" required/>
             <br />

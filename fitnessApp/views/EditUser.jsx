@@ -6,7 +6,7 @@ class EditUser extends React.Component {
      const user = this.props
     return (
       <DefaultLayout title="Edit User">
-         <form
+         <form className="user"
           action={`/user/${this.props.user._id}?_method=PUT`}
           method="POST"
         >

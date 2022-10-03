@@ -1,0 +1,92 @@
+body {
+    background: url(https://th.bing.com/th/id/R.9414300605b6bbb2a02ed5372c855da3?rik=%2fTdEsi2mLaNT%2fQ&riu=http%3a%2f%2fwww.jmaxfitness.com%2fwp-content%2fuploads%2f2018%2f03%2fthe-intermediates-guide-to-building-muscle-guy-dumbbells.jpg&ehk=h7sgwHWR6jgMDg2oxKhFd1%2fJMtc7ejcegnF7Owy3Ytc%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+    margin: 0;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+  }
+  .index{
+    background: url(https://th.bing.com/th/id/R.e1be1fce79b4f299a2d9a03fba11e0af?rik=CJl%2bT8NCQKJ%2bug&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f4%2f73%2f28s9ug.jpg&ehk=HBgDgAcf936mxp%2fPed%2fOj3uwjh14CVdF8ecRTAXLJKQ%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+  .user{
+    background: url(https://wallpaperaccess.com/full/834264.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+ .macro{
+    background: url(https://www.teahub.io/photos/full/196-1961213_photo-wallpaper-muscle-muscle-rod-background-black-gym.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw; 
+ }
+ .push{
+    background: url(https://www.elitefts.com/wp/wp-content/uploads/2011/04/3022045540_c50c1cd88e_b.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+ }
+ .pull{
+    background: url(https://www.topculturism.ro/wp-content/uploads/2018/12/Exercitiile-pentru-spate-trebuie-sa-accentueze-fiecare-muschi-696x467.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+ }
+ .legs{
+    background: url(https://wallpaperaccess.com/full/4692591.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    color: black;
+ } 
+  h1 {
+    font-family: 'Righteous', cursive;
+    background: red;
+    margin:0;
+    margin-bottom: .5em;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  a {
+    color: red;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+    font-size: 1.5em;
+    /* background: rgba(255, 255, 255, 0.9); */
+  }
+  
+  a:hover {
+    color: ghostwhite;
+  }
+  
+  li {
+    list-style: none;
+    color: white;
+  }
+  
+  li a {
+    color: rgb(244, 33, 33);
+  }
+  
+  input[type=text] {
+    padding: .3em;
+  }
+  
+  input[type=submit] {
+    padding: .3em;
+    color: red;
+    background: rgb(248, 218, 218);
+    font-size: 1em;
+    border-radius: 10%;
+  }
+  input[type=submit]:hover {
+    padding: .3em;
+    color: red;
+    background: rgb(1, 1, 1);
+    font-size: 1em;
+    border-radius: 10%;
+  }
