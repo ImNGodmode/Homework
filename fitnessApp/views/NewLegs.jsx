@@ -5,9 +5,9 @@ class NewLegs extends React.Component {
     const {user} = this.props
     return (
       <DefaultLayout title={"New Legs Page"}>
-        <div>
+        <div className="legs">
           <form action="/user/:id/legs/new" method="POST">
-            Owner: <input type="text" name="owner" defaultValue={user._id}required/>
+            Owner (Do not change!): <input type="text" name="owner" defaultValue={user._id}required/>
             <br />
             Squats: <input type="text" name="squats" required/>
             <br />

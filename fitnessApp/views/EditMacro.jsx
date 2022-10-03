@@ -6,7 +6,7 @@ class EditMacro extends React.Component {
      const macro = this.props
     return (
       <DefaultLayout title="Edit Macro">
-         <form
+         <form className="macro"
           action={`/user/Macros/${this.props.macro._id}?_method=PUT`}
           method="POST"
         >

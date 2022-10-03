@@ -4,7 +4,7 @@ class NewUser extends React.Component {
   render() {
     return (
       <DefaultLayout title={"New User Page"}>
-        <div>
+        <div className="user">
           <form action="/" method="POST">
             First Name: <input type="text" name="firstName" required/>
             <br />

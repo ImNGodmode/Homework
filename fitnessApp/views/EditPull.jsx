@@ -6,7 +6,7 @@ class EditPull extends React.Component {
      const pull = this.props
     return (
       <DefaultLayout title="Edit Pull">
-         <form
+         <form className="pull"
           action={`/user/pull/${this.props.pull._id}?_method=PUT`}
           method="POST"
         >

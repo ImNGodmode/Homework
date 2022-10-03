@@ -8,6 +8,7 @@ class Index extends React.Component{
         return(
             
             <DefaultLayout title={"Dashboard"}>
+               <div className="index">
                 <nav>
                     <a href={'/user/new'}>Add New user</a><br/>
 
@@ -29,7 +30,7 @@ class Index extends React.Component{
 
 
                 </ul>
-               
+               </div>
 
 
 

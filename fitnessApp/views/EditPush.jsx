@@ -6,7 +6,7 @@ class EditPush extends React.Component {
      const push = this.props
     return (
       <DefaultLayout title="Edit Push">
-         <form
+         <form className="push"
           action={`/user/push/${this.props.push._id}?_method=PUT`}
           method="POST"
         >

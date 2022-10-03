@@ -6,7 +6,7 @@ class EditLegs extends React.Component {
      const legs = this.props
     return (
       <DefaultLayout title="Edit Legs">
-         <form
+         <form className="legs"
           action={`/user/legs/${this.props.legs._id}?_method=PUT`}
           method="POST"
         >
