@@ -21,7 +21,7 @@ class Show extends React.Component {
 
                         </form>
             {/* edit*/}
-            <a href={`logs/${log._id}/edit`}>Edit Log</a> 
+            <a href={`logs/${log._id}/edit`}>Edit Log</a>  
 
         </div>
       </DefaultLayout>

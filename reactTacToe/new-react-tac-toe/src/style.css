@@ -1,0 +1,28 @@
+.Jordan{
+border: solid blue 5px;
+margin: 1em;
+}
+.Blake{
+border: solid red 5px;
+margin: 1em;
+}
+.App {
+    border: solid purple 3px;
+}
+.gameBoard{
+    background-color: aqua;
+}
+.sqr{
+    border: solid green;
+    height: 90px;
+    width: 90px;
+}
+.sqr:hover{
+    border: solid green;
+    background-color: darkolivegreen;
+    height: 90px;
+    width: 90px;
+}
+.row{
+    display: flex;
+}

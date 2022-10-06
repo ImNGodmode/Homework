@@ -12,6 +12,18 @@ app.get('/', (req, res) => {
 app.get('/pokemon', (req, res) => {
     res.render('Index.jsx', {pokemon: pokemon})
 })
+app.post('/pokemon', (req, res) =>{
+   
+        pokemon.create(req.body, (err, createdpokemon) => {
+        console.log(err)
+    //    res.send(createdStudent )
+    })
+    res.redirect('/students')
+})
+//new
+app.get('/pokemon/new', (req, res) => {
+    res.render('New', {})
+})
 app.get('/pokemon/:id', (req, res) => {
     res.render('Show.jsx', {poke: pokemon[req.params.id]})
 })
